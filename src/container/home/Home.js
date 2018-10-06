@@ -8,7 +8,7 @@ class Home extends Component {
             <div className="jumbotron">
                 <h1>PluralSight Adminstration</h1>
                 <p>React, Redux and React Router in ES6 for ultra-responsive web apps.</p>
-                <Link to="/about" className="btn btn-primary btn-lg">Learn More</Link>
+                <Link to="/about" className="btn btn-danger btn-lg">Learn More</Link>
             </div>
         )
     }

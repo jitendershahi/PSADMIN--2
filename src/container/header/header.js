@@ -6,9 +6,27 @@ class Header extends Component {
     render() {
         return(
             <div>
-                <NavLink to="/home">Home</NavLink>
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <h2 className="navbar-brand">PluralSight Admin</h2>
+                    <div className="collapse navbar-collapse">
+                        <ul className="navbar-nav">
+                        <li className="nav-item active">
+                            <NavLink to="/home" className="nav-link">Home</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/about" className="nav-link">About</NavLink>
+                        </li>
+                        <li className="btn btn-danger nav-item" style={{display:'block',float:'right',marginLeft:'900px'}}>
+                            <NavLink to="login" style={{color:'white'}} className="nav-link">Login</NavLink>
+                        </li>
+                        </ul>
+                    </div>
+                </nav>
+                {/* <NavLink to="/home">Home</NavLink>
                 {" | "}
                 <NavLink to="/about">About</NavLink>
+                {" | "}
+                <NavLink to="/login">Login</NavLink> */}
             </div>
         )
     }
