@@ -5,6 +5,8 @@ import Home from '../container/home/Home'
 import About from '../container/about/About'
 import Login from '../container/login/login'
 
+import Courses from '../container/courses/courses'
+
 class Routes extends Component {
     render() {
         return (
@@ -13,6 +15,8 @@ class Routes extends Component {
                     <Route path="/home" component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/login" component={Login} />
+                    <Route path="/courses" component={Courses} />
+
                     <Redirect from="/" to="/home" />
                 </Switch>
             </div>
