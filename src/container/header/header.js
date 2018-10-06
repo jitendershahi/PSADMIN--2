@@ -21,7 +21,7 @@ class Header extends Component {
                         </li>
                         <li className="btn btn-danger nav-item" style={{display:'block',float:'right',marginLeft:'780px'}}>
                             <NavLink to="login" style={{color:'white'}} className="nav-link">Login</NavLink>
-                        </li>
+                        </li> 
                         </ul>
                     </div>
                 </nav>
