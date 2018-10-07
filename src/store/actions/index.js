@@ -1,1 +1,1 @@
-export { createCourse } from './actionCreators'
+export { createCourse, getCourses} from './actionCreators'

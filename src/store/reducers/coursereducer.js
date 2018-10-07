@@ -7,11 +7,10 @@ const initialState = {
 export const CourseReducer = (state = initialState, action) => {
 
     switch(action.type) {
-        case actionTypes.CREATE_COURSE:
-       
+        case actionTypes.LOAD_COURSE:
         return {
             ...state,
-            courses: state.courses.concat(action.course)
+            courses: action.course
         }
 
         default:
