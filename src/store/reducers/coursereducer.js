@@ -4,13 +4,14 @@ const initialState = {
     courses:[]
 }
 
-const CourseReducer = (state = initialState, action) => {
+export const CourseReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case actionTypes.CREATE_COURSE:
+       
         return {
             ...state,
-            courses: action.data
+            courses: state.courses.concat(action.course)
         }
 
         default:

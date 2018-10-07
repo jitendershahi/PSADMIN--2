@@ -18,7 +18,7 @@ import { BrowserRouter} from 'react-router-dom'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    courses:CourseReducer
+    courseData:CourseReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import * as actionCreators from '../../store/actions/actionCreators'
+
+
 class Courses extends Component {
 
     state = {
@@ -7,6 +11,7 @@ class Courses extends Component {
             title: ''
         }
     }
+
 
     handleForm = (event) => {
         let field = event.target.name
@@ -22,13 +27,17 @@ class Courses extends Component {
 
     submitForm = (event) => {
         event.preventDefault()
-        console.log(this.state.course)
+        this.props.course(this.state.course)
     }
 
     render() {
+        console.log(this.props.courses)
         return (
             <div>
                 <h1>Courses</h1>
+                {this.props.courses.map((el, index) => {
+                    return <div key={index}>{ el.title}</div>
+                })}
                 <h4>Add Course</h4>
 
                 <form onSubmit={this.submitForm}>
@@ -45,4 +54,16 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+const mapStateToProps = (state) => {
+    return {
+        courses:state.courseData.courses
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        course:(course) => dispatch(actionCreators.createCourse(course))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Courses);
