@@ -4,7 +4,7 @@ const initialState = {
     courses:[]
 }
 
-export const Reducer = (state = initialState, action) => {
+const CourseReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case actionTypes.CREATE_COURSE:
@@ -12,5 +12,10 @@ export const Reducer = (state = initialState, action) => {
             ...state,
             courses: action.data
         }
+
+        default:
+        return state
     }
 }
+
+export default CourseReducer;

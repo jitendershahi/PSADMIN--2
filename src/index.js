@@ -9,12 +9,28 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import CourseReducer from './store/reducers/coursereducer'
+
+import { Provider } from 'react-redux'
+import { combineReducers, createStore, compose, applyMiddleware} from 'redux'
 import { BrowserRouter} from 'react-router-dom'
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const rootReducer = combineReducers({
+    courses:CourseReducer
+})
+
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware()
+))
+
 const app = (
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 )
 
 ReactDOM.render(app, document.getElementById('root'));
