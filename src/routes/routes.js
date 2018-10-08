@@ -6,6 +6,7 @@ import About from '../container/about/About'
 import Login from '../container/login/login'
 
 import Courses from '../container/courses/courses'
+import { ManageCourse } from "../container/managecourse/managecourse"
 
 class Routes extends Component {
     render() {
@@ -17,6 +18,8 @@ class Routes extends Component {
                     <Route path="/login" component={Login} />
                     <Route path="/courses" component={Courses} />
 
+                    <Route path="/course" component={ManageCourse} />
+                    <Route path="/course/:id" component={ManageCourse} />
                     <Redirect from="/" to="/home" />
                 </Switch>
             </div>
