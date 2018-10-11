@@ -5,14 +5,16 @@ import SelectInput from '../selectinput/selectinput'
 
 
 const CreateCourseForm = (props) => {
+    console.log(props)
     return (
-        <form>
+        <form >
+            <h1>Manage Courses</h1>
             <TextInput
                 htmlname="Title"
                 label="Title"
                 value={props.course.title}
                 clicked={props.clicked}
-                error={props.error.title} />
+                 />
 
              <SelectInput
                 htmlname="authorId"
@@ -22,22 +24,22 @@ const CreateCourseForm = (props) => {
                 clicked={props.clicked}
                 options={props.allAuthors}
                 clicked={props.clicked}
-                error={props.error.authorId} />
+                 />
 
                 <TextInput
                     htmlname="category"
                     label="Category"
                     value={props.course.category}
                     clicked={props.clicked}
-                    error={props.error.category} />
+                    e />
 
                 <TextInput
                     htmlname="length"
                     label="Length"
                     value={props.course.length}
                     clicked={props.clicked}
-                    error={props.error.length} />
-
+                    />
+                
                 <input 
                     type="submit"
                     disabled={props.loading}

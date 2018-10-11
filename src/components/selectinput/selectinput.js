@@ -9,7 +9,7 @@ const SelectInput = (props) => {
     
     return (
         <div className={wrapperClass}>
-          <label htmlFor={props.htmlname}>{props.label}</label>
+          <b><label htmlFor={props.htmlname}>{props.label}</label></b>
           <div className="field">
                 <select name={props.name} 
                 value={props.value} 
@@ -21,18 +21,17 @@ const SelectInput = (props) => {
                 })}
                 </select>
             </div>
-           {props.error && <div className="alert alert-danger">{props.error}</div>}
+           {/* {props.error && <div className="alert alert-danger">{props.error}</div>} */}
         </div>
     )
 }
 
 SelectInput.propTypes = {
-    error:PropTypes.string.isRequired,
     htmlname:PropTypes.string.isRequired,
     label:PropTypes.string.isRequired,
     value:PropTypes.string,
-    name:PropTypes.string.isRequired,
-    clicked:PropTypes.func.isRequired,
+    name:PropTypes.string,
+    clicked:PropTypes.func,
     options:PropTypes.arrayOf(PropTypes.object)
 }
 
