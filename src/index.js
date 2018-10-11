@@ -27,6 +27,7 @@ const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(thunk)
 ))
 
+console.log($, Popper)
 const app = (
     <Provider store={store}>
         <BrowserRouter>

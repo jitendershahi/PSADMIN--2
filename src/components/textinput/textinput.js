@@ -7,7 +7,7 @@ const TextInput = (props) => {
     let wrapperClass = 'form-group'
 
     if(props.error && props.error.length > 0){ 
-        wrapperClass += " " + 'has-error'
+        wrapperClass += + ' ' + 'has-error'
     }
 
     return (

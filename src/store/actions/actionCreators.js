@@ -17,7 +17,6 @@ export const getCourses = () => {
                 dispatch(loadCourse(data))
             }).catch(error => {
                 throw(error)
-                console.log(error)
             })
     }
 }
