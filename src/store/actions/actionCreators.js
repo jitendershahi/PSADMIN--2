@@ -13,7 +13,6 @@ export const getCourses = () => {
     return dispatch => {
         CourseApi.getAllCourses()
             .then((data) => {
-                console.log(data)
                 dispatch(loadCourse(data))
             }).catch(error => {
                 throw(error)

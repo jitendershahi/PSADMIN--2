@@ -15,6 +15,7 @@ const CreateCourseForm = (props) => {
                 label="Title"
                 value={props.course.title} 
                 clicked={props.clicked}
+                errorname={props.error.title}
                  />
  
              <SelectInput
@@ -23,7 +24,8 @@ const CreateCourseForm = (props) => {
                 name="authorId"
                 defaultOptions="Select Author"
                 clicked={props.clicked}
-                options={props.allAuthors}/>
+                options={props.allAuthors}
+                />
 
                 <TextInput
                     htmlname="category"
@@ -31,14 +33,16 @@ const CreateCourseForm = (props) => {
                     name="category"
                     value={props.course.category}
                     clicked={props.clicked}
+                    errorname={props.error.category}
                      />
 
-                <TextInput
+                <TextInput 
                     htmlname="length"
                     label="Length"
                     name="length"
                     value={props.course.length}
                     clicked={props.clicked}
+                    errorname={props.error.length}
                     />
                 
                 <input 
@@ -46,7 +50,8 @@ const CreateCourseForm = (props) => {
                     disabled={props.loading}
                     value={props.loading ? 'Saving...' : 'Save'} 
                     className="btn btn-primary"
-                    onClick={props.onSave}/> 
+                    onClick={props.onSave}
+                    /> 
         </form>
     )
 }

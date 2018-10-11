@@ -52,7 +52,6 @@ class Login extends Component {
         if(!this.validateForm()) {
             return 
         }
-        console.log(this.state.loginForm)
     }
 
     render() {

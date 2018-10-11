@@ -22,6 +22,32 @@ export class ManageCourse extends Component {
     }
 
 
+    checkValidationForm = () => {
+        let isValid = true
+
+        let errorForm = { ...this.state.error }
+
+        if(this.state.course.title.length < 6){
+            isValid = false
+            errorForm.title = "Title should atleat have 6 character"
+        }
+
+        if(this.state.course.category.length < 6){
+            isValid = false
+            errorForm.category = "Category should atleat have 6 character"
+        }
+
+        const type = this.state.course.length
+        if(isNaN(type)){
+            isValid = false
+            errorForm.length = "Only numbers are allowed in length"
+        }
+        this.setState({ error: errorForm})
+        return isValid
+
+    }
+
+
     changeHandler = (event) => {
         let value = event.target.value
         let field = event.target.name
@@ -34,7 +60,9 @@ export class ManageCourse extends Component {
 
     submitForm = (event) => {
         event.preventDefault()
-        console.log(this.state.course)
+        if(!this.checkValidationForm()){
+           return 
+        }   
     }
 
     render() {
