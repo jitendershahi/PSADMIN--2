@@ -3,39 +3,40 @@ import React from 'react'
 import TextInput from '../textinput/textinput'
 import SelectInput from '../selectinput/selectinput'
 
+import PropTypes from 'prop-types'
 
 const CreateCourseForm = (props) => {
-    console.log(props)
     return (
         <form >
             <h1>Manage Courses</h1>
             <TextInput
                 htmlname="Title"
+                name="title"
                 label="Title"
-                value={props.course.title}
+                value={props.course.title} 
                 clicked={props.clicked}
                  />
-
+ 
              <SelectInput
                 htmlname="authorId"
                 label="Author"
-                value={props.course.authorId}
+                name="authorId"
                 defaultOptions="Select Author"
                 clicked={props.clicked}
-                options={props.allAuthors}
-                clicked={props.clicked}
-                 />
+                options={props.allAuthors}/>
 
                 <TextInput
                     htmlname="category"
                     label="Category"
+                    name="category"
                     value={props.course.category}
                     clicked={props.clicked}
-                    e />
+                     />
 
                 <TextInput
                     htmlname="length"
                     label="Length"
+                    name="length"
                     value={props.course.length}
                     clicked={props.clicked}
                     />
@@ -48,6 +49,12 @@ const CreateCourseForm = (props) => {
                     onClick={props.onSave}/> 
         </form>
     )
+}
+
+CreateCourseForm.propTypes  = {
+    course:PropTypes.object.isRequired,
+    error:PropTypes.object,
+    allAuthors:PropTypes.array.isRequired
 }
 
 export default CreateCourseForm;

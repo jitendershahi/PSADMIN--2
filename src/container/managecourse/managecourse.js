@@ -17,11 +17,24 @@ export class ManageCourse extends Component {
                 loading: '',
                 category: ''
             },
-            authors:[]
+            authors:['Cory House', 'Scott Allen', 'Dan Wahlin'],
+            error:{}
     }
 
-    changeHandler = (event) => {
 
+    changeHandler = (event) => {
+        let value = event.target.value
+        let field = event.target.name
+
+        let authorForm = {...this.state.course}
+        authorForm[field] = value
+
+        this.setState({ course: authorForm})
+    }
+
+    submitForm = (event) => {
+        event.preventDefault()
+        console.log(this.state.course)
     }
 
     render() {
@@ -30,20 +43,25 @@ export class ManageCourse extends Component {
                 <CreateCourseForm 
                 clicked={(event) => this.changeHandler(event)} 
                 course={this.state.course} 
-                allAuthors={this.state.authors}/>
+                allAuthors={this.state.authors}
+                error={this.state.error}
+                onSave={(event) => this.submitForm(event)}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return
+    return {
+        // courses:state.courseData.courses
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return 
+    return {
+    }
 }
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCourse);
+export default connect(mapStateToProps, mapDispatchToProps) (ManageCourse);
