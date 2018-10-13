@@ -15,6 +15,7 @@ class Courses extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         this.props.course()
     }
 
@@ -36,11 +37,15 @@ class Courses extends Component {
     //     this.props.course(this.state.course)
     // }
 
+    addCourse = () => {
+        this.props.history.push('/course')
+    }
+
     render() {
-        console.log(this.props.courses)
         return (
             <div>
                 <h1>Courses</h1>
+                <input type="button" value="Add Course" onClick={this.addCourse} className="bnt btn-primary" />
                 <CourseLlist courses={this.props.courses} />
                 {/* {this.props.courses.map((el, index) => {
                     return <div key={index}>{ el.title}</div>

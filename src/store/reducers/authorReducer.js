@@ -19,6 +19,4 @@ export const AuthorReducer = (state = initialState, action) => {
     }
 }
 
-
-
 export default AuthorReducer;

@@ -65,7 +65,10 @@ export class ManageCourse extends Component {
         event.preventDefault()
         if(!this.checkValidationForm()){
            return 
-        }   
+        }
+        console.log(this.state.course)
+        this.props.courseForm(this.state.course)   
+        this.props.history.push('/courses')
     }
 
     render() {
@@ -90,7 +93,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        authors:() => dispatch(actionCreator.getAuthorsList())
+        authors:() => dispatch(actionCreator.getAuthorsList()),
+        courseForm:(course) => dispatch(actionCreator.saveCourse(course))
     }
 }
 
