@@ -83,6 +83,7 @@ export class ManageCourse extends Component {
     }
 
     render() {
+        console.log(this.props.courses)
         // this.getCourseById(this.props.courses, this.props.match.params.id)
         return ( 
             <div className="col-md-8 offset-md-2">
@@ -113,7 +114,7 @@ const mapStateToProps = (state, ownProps) => {
     // }
     return {
         getauthors:state.authorsData.authors,
-        courses:state.courseData.courses
+        courses:state.courseData
     }
 }
 

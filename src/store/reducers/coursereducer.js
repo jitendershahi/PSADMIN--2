@@ -4,30 +4,40 @@ const initialState = {
     courses:[]
 }
 
-export const CourseReducer = (state = initialState, action) => {
+export const CourseReducer = (state = initialState.courses, action) => {
 
     switch(action.type) {
         case actionTypes.LOAD_COURSE:
-        return {
-            ...state,
-            courses: action.course
-        }
+        return action.course
+        // return {
+        //     ...state,
+        //     courses: action.course
+        // }
 
-        case actionTypes.CREATE_COURSE_FORM :
-        let course = {
-            ...action.data
-        }
-        return {
+        case actionTypes.CREATE_COURSE_FORM:
+        return [
             ...state,
-            courses:state.courses.concat(course)
-        }
+            Object.assign({}, action.data)
+        ]
+        // let course = {
+        //     ...action.data
+        // }
+        // return {
+        //     ...state,
+        //     courses:state.courses.concat(course)
+        // }
 
         case actionTypes.UPDATE_COURSE_FORM:
-        let editCourse = [ ...state.courses.filter(course => course.id !== action.data.id) ,Object.assign({} ,action.data) ]
-        return {
-            ...state,
-            courses : editCourse
-        }
+        return [
+            Object.assign({}, action.data),
+            ...state.filter(course => course.id !== action.data.id)
+            
+        ]
+        // let editCourse = [ ...state.courses.filter(course => course.id !== action.data.id) ,Object.assign({} ,action.data) ]
+        // return {
+        //     ...state,
+        //     courses : editCourse
+        // }
 
         default:
         return state

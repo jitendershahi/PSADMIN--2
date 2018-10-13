@@ -41,7 +41,6 @@ class Courses extends Component {
     }
 
     render() {
-        
         console.log(this.props.courses)
         return (
             <div>
@@ -69,7 +68,7 @@ class Courses extends Component {
 
 const mapStateToProps = (state) => { 
     return {
-        courses:state.courseData.courses
+        courses:state.courseData
     }
 }
 
