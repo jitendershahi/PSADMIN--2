@@ -6,7 +6,7 @@ import About from '../container/about/About'
 import Login from '../container/login/login'
 
 import Courses from '../container/courses/courses'
-import { ManageCourse } from "../container/managecourse/managecourse"
+import  ManageCourse  from "../container/managecourse/managecourse"
 
 class Routes extends Component {
     render() {

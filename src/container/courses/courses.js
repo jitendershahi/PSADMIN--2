@@ -14,12 +14,12 @@ class Courses extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.course()
     }
 
 
-    // handleForm = (event) => {
+    // handleForm = (event) => { 
     //     let field = event.target.name
     //     let value = event.target.value
 
@@ -37,6 +37,7 @@ class Courses extends Component {
     // }
 
     render() {
+        console.log(this.props.courses)
         return (
             <div>
                 <h1>Courses</h1>
@@ -60,7 +61,7 @@ class Courses extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { 
     return {
         courses:state.courseData.courses
     }

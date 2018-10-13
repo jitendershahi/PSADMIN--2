@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import CreateCourseForm from '../../components/createcourseform/createcourseform'
-
+import * as actionCreator from '../../store/actions/authorActionCreators'
 
 export class ManageCourse extends Component {
 
@@ -17,8 +17,11 @@ export class ManageCourse extends Component {
                 loading: '',
                 category: ''
             },
-            authors:['Cory House', 'Scott Allen', 'Dan Wahlin'],
             error:{}
+    } 
+
+    componentDidMount() {
+        this.props.authors()
     }
 
 
@@ -68,28 +71,28 @@ export class ManageCourse extends Component {
     render() {
         return ( 
             <div className="col-md-8 offset-md-2">
-                <CreateCourseForm 
-                clicked={(event) => this.changeHandler(event)} 
-                course={this.state.course} 
-                allAuthors={this.state.authors}
-                error={this.state.error}
-                onSave={(event) => this.submitForm(event)}/>
+                    <CreateCourseForm 
+                    clicked={(event) => this.changeHandler(event)} 
+                    course={this.state.course} 
+                    allAuthors={this.props.getauthors}
+                    error={this.state.error}
+                    onSave={(event) => this.submitForm(event)}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => { 
     return {
-        // courses:state.courseData.courses
+        getauthors:state.authorsData.authors
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
+        authors:() => dispatch(actionCreator.getAuthorsList())
     }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (ManageCourse);
+

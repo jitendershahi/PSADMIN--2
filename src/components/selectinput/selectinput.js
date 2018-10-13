@@ -15,8 +15,8 @@ const SelectInput = (props) => {
                 className="form-control"> 
                 <option value="">{props.defaultOptions}</option>
                 {props.options.map((el, index) => {
-                    return <option key={index} value={el}>{el}</option>
-                })}
+                    return <option key={el.id} value={el.firstName}>{el.firstName} {el.lastName}</option>
+                })} 
                 </select>
             </div>
            {/* {props.error && <div className="alert alert-danger">{props.error}</div>} */}

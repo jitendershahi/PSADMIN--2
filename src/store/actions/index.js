@@ -1,1 +1,7 @@
-export { createCourse, getCourses} from './actionCreators'
+export {
+    loadCourse,
+    getCourses,
+    getAuthors,
+    authorsSuccess
+}
+from './actionCreators'
