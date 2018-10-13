@@ -32,7 +32,6 @@ export const getAuthors = () => {
     return dispatch => {
         AuthorApi.getAllAuthors()
          .then((data) => {
-             console.log(data)
             dispatch(authorsSuccess(data))
          }).catch(error => {
              throw(error)

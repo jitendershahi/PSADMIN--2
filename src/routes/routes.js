@@ -17,9 +17,8 @@ class Routes extends Component {
                     <Route path="/about" component={About} />
                     <Route path="/login" component={Login} />
                     <Route path="/courses" component={Courses} />
-
-                    <Route path="/course" component={ManageCourse} />
                     <Route path="/course/:id" component={ManageCourse} />
+                    <Route path="/course" component={ManageCourse} />
                     <Redirect from="/" to="/home" />
                 </Switch>
             </div>

@@ -12,10 +12,11 @@ const SelectInput = (props) => {
           <div className="field">
                 <select name={props.name} 
                 onChange={props.clicked}
+                value={props.authorId}
                 className="form-control"> 
                 <option value="">{props.defaultOptions}</option>
                 {props.options.map((el, index) => {
-                    return <option key={el.id} value={el.id}>{el.firstName} {el.lastName}</option>
+                    return <option key={index} value={el.authorId}>{el.text}</option>
                 })} 
                 </select>
             </div>

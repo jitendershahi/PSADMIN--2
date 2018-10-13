@@ -39,7 +39,6 @@ export const createCourseSuccess = (courseForm) => {
 
 export const saveCourse = (course) => {
     return dispatch => {
-        console.log(course)
         CourseApi.saveCourse(course)
          .then((response) => {
             course.id ? dispatch(updateCourseSuccess(response)) : dispatch(createCourseSuccess(response))

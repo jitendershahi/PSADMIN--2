@@ -14,7 +14,6 @@ export const CourseReducer = (state = initialState, action) => {
         }
 
         case actionTypes.CREATE_COURSE_FORM :
-        console.log(action)
         let course = {
             ...action.data
         }
@@ -24,15 +23,10 @@ export const CourseReducer = (state = initialState, action) => {
         }
 
         case actionTypes.UPDATE_COURSE_FORM:
-        console.log(action)
-        // if(state.courses.filter(course => course.id !== action.data.id)){
-        //     let Dcourse = {
-        //         ...action.data
-        //     }
-        // }
+        let editCourse = [ ...state.courses.filter(course => course.id !== action.data.id) ,Object.assign({} ,action.data) ]
         return {
             ...state,
-            courses:[...state.courses.filter(course => course.id !== action.data.id),state.courses.concat(action.data) ]
+            courses : editCourse
         }
 
         default:

@@ -6,8 +6,16 @@ import SelectInput from '../selectinput/selectinput'
 import PropTypes from 'prop-types'
 
 const CreateCourseForm = (props) => {
+    let authors = []
+    authors = props.allAuthors.map(author => {
+        return {
+            authorId: author.id,
+            text: author.firstName + ' ' + author.lastName
+        }
+    })
+
     return (
-        <form >
+        <form > 
             <h1>Manage Courses</h1>
             <TextInput
                 htmlname="Title"
@@ -22,9 +30,10 @@ const CreateCourseForm = (props) => {
                 htmlname="authorId"
                 label="Author"
                 name="authorId"
+                authorId={props.authorId}
                 defaultOptions="Select Author"
                 clicked={props.clicked}
-                options={props.allAuthors}
+                options={authors}
                 />
 
                 <TextInput
