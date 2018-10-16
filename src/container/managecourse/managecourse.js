@@ -8,34 +8,35 @@ import * as actionCreator from '../../store/actions/authorActionCreators'
 export class ManageCourse extends Component {
 
     state = {
-        course: {
-                id: '',
-                watchHref: '',
-                title: '',
-                authorId: '',
-                length: '',
-                loading: '',
-                category: ''
-            },
-            error:{}
+        course: {...this.props.course},
+        error:{}
     } 
 
     componentDidMount() {
+        console.log(this.props)
         this.props.authors()
-        this.getCourseById(this.props.courses, this.props.match.params.id)
+        // this.getCourseById(this.props.courses, this.props.match.params.id)
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(nextProps)
+    //     if (this.props.course.id !== nextProps.match.params.id) {
+    //       // Necessary to update form when existing course is loading directly
+    //       this.setState({course: Object.assign({}, nextProps.course)});
+    //     }
+    //   }
 
-    getCourseById = (courses, id) => {
-        courses = courses.filter(course => course.id === id)
-        if(courses.length > 0){
-            let form = { ...this.state.course }
-            form = courses[0]
+
+    // getCourseById = (courses, id) => {
+    //     courses = courses.filter(course => course.id === id)
+    //     if(courses.length > 0){
+    //         let form = { ...this.state.course }
+    //         form = courses[0]
             
-            this.setState({course : form })
-            // this.state.course  = courses[0]
-        }
-    }
+    //         this.setState({course : form })
+    //         // this.state.course  = courses[0]
+    //     }
+    // }
 
     checkValidationForm = () => {
         let isValid = true
@@ -99,20 +100,29 @@ export class ManageCourse extends Component {
     }
 }
 
-// const getCourseById = (courses,id) => {
-//     courses = courses.filter(course => course.id === id)
-//     if(courses.length){
-//         this.state.course =  courses[0]
-//     } 
-//     return null
-// }
+const getCourseById = (courses, id) => {
+    const course = courses.filter(course => course.id === id);
+    if (course) return course[0];
+    return null;
+}
 
 const mapStateToProps = (state, ownProps) => { 
-    // let courseId = ownProps.match.params.id
-    // if(courseId){
-    //   getCourseById(this.props.courses, courseId)
-    // }
+    const courseId = ownProps.match.params.id
+    let course = {
+        id: '',
+        watchHref: '',
+        title: '',
+        authorId: '',
+        length: '',
+        loading: '',
+        category: ''
+    }
+
+   if(courseId && state.courseData.length > 0){
+    course = getCourseById(state.courseData, courseId);
+   }
     return {
+        course:course,
         getauthors:state.authorsData.authors,
         courses:state.courseData
     }

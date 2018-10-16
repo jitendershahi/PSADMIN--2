@@ -16,7 +16,7 @@ const CourseLlist = (props) => {
                 </tr>
             </thead>
             <tbody>
-                 {props.courses ? props.courses.map((el) => <CourseListRow key={el.id} course={el} /> ) : null}
+                 {props.courses.map((el) => <CourseListRow key={el.id} course={el} /> )}
             </tbody>
           </table>
         </div>

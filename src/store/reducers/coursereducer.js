@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 
-const initialState = {
+let initialState = {
     courses:[]
 }
 
@@ -28,11 +28,14 @@ export const CourseReducer = (state = initialState.courses, action) => {
         // }
 
         case actionTypes.UPDATE_COURSE_FORM:
-        return [
-            Object.assign({}, action.data),
-            ...state.filter(course => course.id !== action.data.id)
-            
-        ]
+        console.log(state)
+        let array = state.filter(course => course.id != action.data.id)
+        array.push(action.data)
+        console.log(array)
+        return  array
+            // ...state.filter(course => course.id !== action.data.id),
+            // Object.assign({},action.data)
+        
         // let editCourse = [ ...state.courses.filter(course => course.id !== action.data.id) ,Object.assign({} ,action.data) ]
         // return {
         //     ...state,
