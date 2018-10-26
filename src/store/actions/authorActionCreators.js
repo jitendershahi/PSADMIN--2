@@ -29,14 +29,18 @@ export const loadCourse = (data) => {
     }
 }
 
-export const getCourses = () => {
-    return dispatch => {
-        CourseApi.getAllCourses()
+export const getCourses = () => {   
+    return (dispatch, getState) =>  {
+        let {courseData} = getState()
+        if(courseData.length == 0){
+            CourseApi.getAllCourses()
             .then((data) => {
                 dispatch(loadCourse(data))
             }).catch(error => {
                 throw(error)
             })
+        } 
+        
     }
 }
 
