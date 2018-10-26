@@ -28,7 +28,7 @@ const store = createStore(rootReducer, composeEnhancers(
 console.log($, Popper)
 const app = (
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/">
             <App />
         </BrowserRouter>
     </Provider>
