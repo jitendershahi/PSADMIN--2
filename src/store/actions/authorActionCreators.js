@@ -32,7 +32,7 @@ export const loadCourse = (data) => {
 export const getCourses = () => {   
     return (dispatch, getState) =>  {
         let {courseData} = getState()
-        if(courseData.length == 0){
+        if(courseData.length === 0){
             CourseApi.getAllCourses()
             .then((data) => {
                 dispatch(loadCourse(data))

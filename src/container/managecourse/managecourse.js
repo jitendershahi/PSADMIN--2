@@ -13,30 +13,8 @@ export class ManageCourse extends Component {
     } 
 
     componentDidMount() {
-        console.log(this.props)
         this.props.authors()
-        // this.getCourseById(this.props.courses, this.props.match.params.id)
     }
-
-    // componentWillReceiveProps(nextProps) {
-    //     console.log(nextProps)
-    //     if (this.props.course.id !== nextProps.match.params.id) {
-    //       // Necessary to update form when existing course is loading directly
-    //       this.setState({course: Object.assign({}, nextProps.course)});
-    //     }
-    //   }
-
-
-    // getCourseById = (courses, id) => {
-    //     courses = courses.filter(course => course.id === id)
-    //     if(courses.length > 0){
-    //         let form = { ...this.state.course }
-    //         form = courses[0]
-            
-    //         this.setState({course : form })
-    //         // this.state.course  = courses[0]
-    //     }
-    // }
 
     checkValidationForm = () => {
         let isValid = true
@@ -52,12 +30,6 @@ export class ManageCourse extends Component {
             isValid = false
             errorForm.category = "Category should atleat have 6 character"
         }
-
-        // const type = this.state.course.length
-        // if(isNaN(type)){
-        //     isValid = false
-        //     errorForm.length = "Only numbers are allowed in length"
-        // }
         this.setState({ error: errorForm})
         return isValid
 
@@ -84,8 +56,6 @@ export class ManageCourse extends Component {
     }
 
     render() {
-        console.log(this.props.courses)
-        // this.getCourseById(this.props.courses, this.props.match.params.id)
         return ( 
             <div className="col-md-8 offset-md-2">
                     <CreateCourseForm 
