@@ -27,8 +27,6 @@ class Login extends Component {
 
     validateForm = () => {
         let isValid = true
-        // const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
         let pattern = "jitendersharmasdec@gmail.com"
 
         let errorForm = { ...this.state.error}
@@ -68,14 +66,6 @@ class Login extends Component {
                           value={ this.state.loginForm.email } 
                           click={this.loginForm}
                           error={this.state.error.email}/>
-                        {/* <label style={{padding:'20px'}} htmlFor="email">Email</label>
-                        <input type="email"
-                        name="email"
-                        className="form-control" 
-                        placeholder="please enter email id"
-                        value={ this.state.loginForm.email }
-                        onChange={this.loginForm}  />
-                        <div className="text-danger">{this.state.error.email}</div> */}
 
                         <Input labelFor="password"
                          label="Password" 
@@ -85,15 +75,6 @@ class Login extends Component {
                           value={ this.state.loginForm.password } 
                           click={this.loginForm}
                           error={this.state.error.password}/>
-
-                        {/* <label  style={{padding:'20px'}} htmlFor="password">Password</label>
-                        <input type="password"
-                        name="password"
-                        className="form-control"
-                        placeholder="please enter password"
-                        value={this.state.loginForm.password} 
-                        onChange={this.loginForm} />
-                        <div className="text-danger">{this.state.error.password}</div> */}
 
                         <input type="submit" value="Login" className="btn btn-danger custom-button" />
                     </form>

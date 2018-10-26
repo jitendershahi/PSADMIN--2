@@ -6,10 +6,6 @@ import PropTypes from 'prop-types';
 const TextInput = (props) => {
     let wrapperClass = 'form-group'
 
-    // if(props.errorName && props.errorName.length > 0){ 
-    //     wrapperClass += + ' ' + 'has-error'
-    // }
-
     return (
         <div className={wrapperClass}> 
           <b><label htmlFor={props.htmlname}>{props.label}</label></b>
@@ -22,7 +18,6 @@ const TextInput = (props) => {
                 className="form-control"/>
             </div>
             <div className="text-danger">{props.errorname}</div>
-           {/* {props.errorname ? <div className="alert alert-danger">{props.errorname}</div> : null} */}
         </div>
     )
 }

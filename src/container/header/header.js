@@ -25,11 +25,6 @@ class Header extends Component {
                         </ul>
                     </div>
                 </nav>
-                {/* <NavLink to="/home">Home</NavLink>
-                {" | "}
-                <NavLink to="/about">About</NavLink>
-                {" | "}
-                <NavLink to="/login">Login</NavLink> */}
             </div>
         )
     }
