@@ -7,7 +7,7 @@ class Header extends Component {
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <h2 className="navbar-brand">PluralSight Admin</h2>
+                    <h2 className="navbar-brand">Admin's</h2>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                         <li className="nav-item active">
